@@ -148,6 +148,7 @@ class PdfReader extends Component<Props, State> {
       const android = Platform.OS === 'android'
 
       this.setState({ ios, android })
+      let ready = false
 
       let data = undefined
       if (
@@ -161,6 +162,7 @@ class PdfReader extends Component<Props, State> {
         ready= !!data
       } else if (source.base64 && source.base64.startsWith('data')) {
         data = source.base64
+        ready = true
       } else if (ios) {
         data = source.uri
       } else {
@@ -197,7 +199,7 @@ class PdfReader extends Component<Props, State> {
     const { ready, data, ios, android } = this.state
     const { style, webviewStyle, onLoad, noLoader, onLoadEnd, onError  } = this.props
 
-    if (ready && data && ios) {
+    if (data && ios) {
       return (
         <View style={[styles.container, style]}>
           {!noLoader && !ready && <Loader />}
