@@ -228,9 +228,6 @@ class PdfReader extends Component<Props, State> {
             originWhitelist={['http://*', 'https://*', 'file://*', 'data:*']}
             style={[styles.webview, webviewStyle]}
             source={{ uri: htmlPath }}
-            // mixedContentMode="always"
-            // scrollEnabled
-            // height="100vh"
           />
         </View>
       )
