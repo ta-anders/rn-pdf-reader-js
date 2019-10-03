@@ -149,7 +149,6 @@ class PdfReader extends Component<Props, State> {
 
       this.setState({ ios, android })
       let ready = false
-
       let data = undefined
       if (
         source.uri &&
